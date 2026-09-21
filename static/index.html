@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Nutrition</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">SMART NUTRITION / LABEL LIBRARY</p>
+        <h1>Know what you eat.</h1>
+        <p class="intro">Capture the details from a food label once, then keep a clean, searchable record of your everyday choices.</p>
+      </div>
+      <div class="hero-stat"><strong id="food-count">0</strong><span>foods saved</span></div>
+    </header>
+
+    <section class="workspace">
+      <form id="food-form" class="panel form-panel">
+        <div class="panel-heading">
+          <div><p class="section-kicker">NEW ENTRY</p><h2>Add a food label</h2></div>
+          <span class="required-note">* required</span>
+        </div>
+
+        <div class="form-grid identity-grid">
+          <label class="wide">Food name *<input name="name" required placeholder="e.g. Greek yoghurt"></label>
+          <label>Brand<input name="brand" placeholder="e.g. Fage"></label>
+          <label>Barcode<input name="barcode" inputmode="numeric" placeholder="Optional"></label>
+          <label>Serving size *<input name="serving_size" required placeholder="e.g. 150 g"></label>
+          <label>Servings / container<input name="servings_per_container" type="number" min="0" step="0.1" placeholder="Optional"></label>
+        </div>
+
+        <div class="nutrition-block">
+          <div class="subheading"><h3>Nutrition per serving</h3><span>Use the units printed on the label</span></div>
+          <div class="form-grid nutrition-grid">
+            <label class="energy">Calories<input name="calories" type="number" min="0" step="0.1" placeholder="kcal"></label>
+            <label class="energy">Energy<input name="energy_kj" type="number" min="0" step="0.1" placeholder="kJ"></label>
+            <label>Total fat<input name="total_fat_g" type="number" min="0" step="0.1" placeholder="g"></label>
+            <label>Saturates<input name="saturated_fat_g" type="number" min="0" step="0.1" placeholder="g"></label>
+            <label>Carbohydrate<input name="carbohydrates_g" type="number" min="0" step="0.1" placeholder="g"></label>
+            <label>of which sugars<input name="sugars_g" type="number" min="0" step="0.1" placeholder="g"></label>
+            <label>Fibre<input name="fiber_g" type="number" min="0" step="0.1" placeholder="g"></label>
+            <label>Protein<input name="protein_g" type="number" min="0" step="0.1" placeholder="g"></label>
+            <label>Sodium<input name="sodium_mg" type="number" min="0" step="0.1" placeholder="mg"></label>
+            <label>Salt<input name="salt_g" type="number" min="0" step="0.1" placeholder="g"></label>
+          </div>
+        </div>
+
+        <label>Notes<textarea name="notes" rows="3" placeholder="Allergens, ingredients, or anything else worth remembering"></textarea></label>
+        <div class="form-actions"><span id="form-message" role="status" aria-live="polite">Loading...</span><button type="submit">Save food <span>→</span></button></div>
+      </form>
+
+      <aside class="panel library-panel">
+        <div class="panel-heading"><div><p class="section-kicker">YOUR LIBRARY</p><h2>Recent foods</h2></div><span class="live-dot">LIVE</span></div>
+        <div id="food-list" class="food-list"><p class="empty-state">Your saved labels will appear here.</p></div>
+      </aside>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
